@@ -1,0 +1,26 @@
+---
+version: 0.1
+auth:
+  htpasswd:
+    realm: Registry Realm
+    path: /auth/registry.htpasswd
+log:
+  level: debug
+http:
+  addr: 0.0.0.0:5000
+  hostname: https://{{inventory_hostname}}
+  tls:
+    certificate: /pki/cert.pem
+    key: /pki/key.pem
+  secret: {{docker_registry_http_secret|to_json}}
+storage:
+  cache:
+    blobdescriptor: inmemory
+  delete:
+    enabled: {{docker_registry_delete_mode|bool}}
+  filesystem:
+    rootdirectory: {{docker_registry_storage_filesystem_rootdirectory|to_json}}
+    maxthreads: {{docker_registry_storage_filesystem_maxthreads|to_json}}
+  maintenance:
+    readonly:
+      enabled: {{docker_registry_readonly_mode|bool}}

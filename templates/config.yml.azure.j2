@@ -1,0 +1,27 @@
+---
+version: 0.1
+auth:
+  htpasswd:
+    realm: Registry Realm
+    path: /auth/registry.htpasswd
+log:
+  level: error
+http:
+  addr: 0.0.0.0:5000
+  hostname: https://{{inventory_hostname}}
+  tls:
+    certificate: /pki/cert.pem
+    key: /pki/key.pem
+  secret: {{docker_registry_http_secret|to_json}}
+storage:
+  cache:
+    blobdescriptor: inmemory
+  delete:
+    enabled: {{docker_registry_delete_mode|bool}}
+  azure:
+    accountname: {{docker_registry_storage_azure_accountname|to_json}}
+    accountkey: {{docker_registry_storage_azure_accountkey|to_json}}
+    container: {{docker_registry_storage_azure_container|to_json}}
+  maintenance:
+    readonly:
+      enabled: {{docker_registry_readonly_mode|bool}}
