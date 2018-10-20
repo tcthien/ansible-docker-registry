@@ -19,7 +19,7 @@ storage:
   delete:
     enabled: {{docker_registry_delete_mode|bool}}
   filesystem:
-    rootdirectory: {{docker_registry_storage_filesystem_rootdirectory|to_json}}
+    rootdirectory: /docker_registry_storage
     maxthreads: {{docker_registry_storage_filesystem_maxthreads|to_json}}
   maintenance:
     readonly:

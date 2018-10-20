@@ -73,4 +73,6 @@
       - '{{docker_registry_conf_dir}}/config.yml:/etc/docker/registry/config.yml:ro'
       - '{{docker_registry_conf_dir}}/auth:/auth:ro'
       - '{{docker_registry_conf_dir}}/pki:/pki:ro'
+      - '{{docker_registry_storage_filesystem_rootdirectory}}:/docker_registry_storage'
+
 
