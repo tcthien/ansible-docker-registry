@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Thien Tran
-  description: Docker registry role supporting following storage: filesystem, Amazon S3, Azure
+  description: Docker registry role supporting filesystem, Amazon S3, Azure storage
   company: Vocatec
   license:
     - MIT
